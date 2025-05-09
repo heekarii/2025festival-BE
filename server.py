@@ -25,7 +25,7 @@ class Table(BaseModel):
 
 # 메모리상에만 저장하는 예시 (총 5개)
 tables: List[Table] = [
-    Table(id=i, name=f"테이블 {i}") for i in range(1, 6)
+    Table(id=i, name=f"테이블 {i}") for i in range(1, 13)
 ]
 
 @app.get("/tables", response_model=List[Table])
