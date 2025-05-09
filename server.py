@@ -10,7 +10,9 @@ app = FastAPI()
 # CORS: Next.js(3000)에서 호출 허용
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000",
+                   "https://2025festival-fe-git-main-choheeseoks-projects.vercel.app"
+                   ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
