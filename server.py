@@ -11,7 +11,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000",
-                   "https://2025festival-fe-git-main-choheeseoks-projects.vercel.app"
+                   "https://2025festival-jrgq6rxju-choheeseoks-projects.vercel.app"
                    ],
     allow_methods=["*"],
     allow_headers=["*"],
@@ -33,9 +33,10 @@ def get_tables():
 
 @app.post("/tables/{table_id}/enter", response_model=Table)
 def enter_table(table_id: int):
+    from zoneinfo import ZoneInfo
     for t in tables:
         if t.id == table_id:
-            t.entryTime = datetime.utcnow().isoformat()
+            t.entryTime = datetime.now(ZoneInfo("Asia/Seoul")).isoformat()
             return t
     raise HTTPException(404, "테이블이 없습니다")
 
